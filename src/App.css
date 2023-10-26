@@ -2,4 +2,11 @@
   max-width: 1280px;
   height: 100vh;
   padding: 2rem;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.link-select {
+  background-color: var(--color-green);
 }
