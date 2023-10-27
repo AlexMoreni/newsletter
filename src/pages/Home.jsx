@@ -1,4 +1,5 @@
 import Navbar from "../components/Navbar.jsx";
+import Footer from "../components/Footer.jsx";
 
 import {
   Container,
@@ -261,6 +262,7 @@ const Home = () => {
           </ContainerNewsRightRender>
         </ContainerNewsRight>
       </ContainerNews>
+      <Footer />
     </Container>
   );
 };
