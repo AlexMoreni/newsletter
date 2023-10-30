@@ -12,20 +12,28 @@ import {
   ContainerNewsHeaderLeft,
   ContainerNewsHeaderRight,
   NewsHeaderLeftFirst,
+  NewsHeaderLeftFirstTitle,
+  NewsHeaderLeftFirstImg,
   NewsHeaderLeftSeccond,
   NewsHeaderLeftSeccondTitle,
   NewsHeaderLeftSeccondText,
+  NewsHeaderLeftSeccondImg,
   NewsHeaderRightFirst,
   NewsHeaderRightFirstText,
+  NewsHeaderRightFirstImg,
   NewsHeaderRightSeccond,
   NewsHeaderRightSeccondTitle,
   NewsHeaderRightSeccondText,
+  NewsHeaderRightSeccondImg,
   ContainerNews,
   ContainerNewsLeft,
   ContainerNewsLeftTitle,
   NewsLeftTitle,
   NewsLeftRow,
   ContainerNewsLeftRender,
+  CardImgNewsLeft,
+  CardImgNewsLeftImg,
+  CardImgNewsLeftTitle,
   CardTextNewsLeft,
   CardTextNewsLeftTitle,
   CardTextNewsLeftText,
@@ -38,114 +46,142 @@ import {
   CardTextNewsRight,
   CardTextNewsRightTitle,
   CardTextNewsRightText,
+  CardTextNewsRightImg,
 } from "./Home.style";
 
-const Home = () => {
+const Home = ({ news, setHeadline }) => {
+  const handleHeadline = (e) => {
+    e.preventDefault();
+
+    setHeadline(e.target[0].value);
+  };
+
   return (
     <Container>
       <Header>
         <ContainerSearch>
-          <TitleHeader>Newsletter</TitleHeader>
-          <form>
-            <InputSearch type="text" placeholder="Procurar por manchetes" />
+          <TitleHeader>
+            <a href="">Newsletter</a>
+          </TitleHeader>
+          <form onSubmit={handleHeadline}>
+            <InputSearch
+              type="text"
+              placeholder="Procurar por manchetes"
+              name="headline"
+            />
             <ButtonSearch>Buscar</ButtonSearch>
           </form>
         </ContainerSearch>
-        <Navbar />
+        <Navbar setHeadline={setHeadline} />
         <ContainerNewsHeader>
           <ContainerNewsHeaderLeft>
-            <NewsHeaderLeftFirst className="Primeira noticia">
-              <img src="/frame-14.png" alt="" />
+            <NewsHeaderLeftFirst>
+              <NewsHeaderLeftFirstTitle>
+                {news && news[0] && news[0].title}
+              </NewsHeaderLeftFirstTitle>
+              <NewsHeaderLeftFirstImg
+                src={news && news[0] && news[0].urlToImage}
+              />
             </NewsHeaderLeftFirst>
-            <NewsHeaderLeftSeccond className="Segunda noticia">
+            <NewsHeaderLeftSeccond>
               <div>
                 <NewsHeaderLeftSeccondTitle>
-                  Philomena Cunk Is Weird Enough to Take on the World
+                  {news && news[1] && news[1].title}
                 </NewsHeaderLeftSeccondTitle>
                 <NewsHeaderLeftSeccondText>
-                  The new Netflix show “Cunk on Earth” looks like an ambitious
-                  BBC documentary. Until its fictional host, created by Charlie
-                  Brooker, starts to ask some deeply silly questions.
+                  {news && news[1] && news[1].description}
                 </NewsHeaderLeftSeccondText>
               </div>
-              <img src="/rectangle-24.png" alt="" />
+              <NewsHeaderLeftSeccondImg
+                src={news && news[1] && news[1].urlToImage}
+                alt=""
+              />
             </NewsHeaderLeftSeccond>
           </ContainerNewsHeaderLeft>
           <ContainerNewsHeaderRight>
             <NewsHeaderRightFirst>
               <NewsHeaderRightFirstText>
-                Secretary of State Antony J. Blinken on Friday canceled a
-                weekend trip to Beijing after a Chinese spy balloon was sighted
-                above the Rocky Mountain state of Montana, igniting a Pentagon
-                said posed no threat to the United States.
+                {news && news[2] && news[2].content}
               </NewsHeaderRightFirstText>
-              <img src="/rectangle-19.png" alt="" />
+              <NewsHeaderRightFirstImg
+                src={news && news[2] && news[2].urlToImage}
+              />
             </NewsHeaderRightFirst>
             <NewsHeaderRightSeccond>
-              <img src="/rectangle-21.png" alt="" />
+              <NewsHeaderRightSeccondImg
+                src={news && news[3] && news[3].urlToImage}
+              />
               <div>
                 <NewsHeaderRightSeccondTitle>
-                  More Airports to Use Greener ‘Glide’ Approach to Landing
+                  {news && news[3] && news[3].title}
                 </NewsHeaderRightSeccondTitle>
                 <NewsHeaderRightSeccondText>
-                  The Stopping Home Office Work’s Unproductive Problems (SHOW
-                  UP, get it?) Act of 2023 passed the Republican-majority US
-                  House of Representatives on a close-to-party-line vote l...
+                  {news && news[3] && news[3].content}
                 </NewsHeaderRightSeccondText>
               </div>
             </NewsHeaderRightSeccond>
           </ContainerNewsHeaderRight>
         </ContainerNewsHeader>
       </Header>
-      <ContainerNews className="Container-geral">
-        <ContainerNewsLeft className="Container-Left">
-          <ContainerNewsLeftTitle className="Container-title-left">
+      <ContainerNews>
+        <ContainerNewsLeft>
+          <ContainerNewsLeftTitle>
             <NewsLeftTitle>Latest News</NewsLeftTitle>
             <NewsLeftRow></NewsLeftRow>
           </ContainerNewsLeftTitle>
-          <ContainerNewsLeftRender className="Container-News">
-            <div className="Card-imgs">
-              <img src="/frame-7.png" alt="" />
-            </div>
-            <div className="Card-imgs">
-              <img src="/frame-7.png" alt="" />
-            </div>
-            <CardTextNewsLeft className="Card-Text">
+          <ContainerNewsLeftRender>
+            <CardImgNewsLeft>
+              <CardImgNewsLeftImg
+                src={news && news[4] && news[4].urlToImage}
+                alt=""
+              />
+              <CardImgNewsLeftTitle>
+                {news && news[4] && news[4].description}
+              </CardImgNewsLeftTitle>
+            </CardImgNewsLeft>
+            <CardImgNewsLeft>
+              <CardImgNewsLeftImg
+                src={news && news[5] && news[5].urlToImage}
+                alt=""
+              />
+              <CardImgNewsLeftTitle>
+                {news && news[5] && news[5].description}
+              </CardImgNewsLeftTitle>
+            </CardImgNewsLeft>
+            <CardTextNewsLeft>
               <CardTextNewsLeftTitle>
-                More Airports to Use Greener ‘Glide’ Approach to Landing
+                {news && news[6] && news[6].title}
               </CardTextNewsLeftTitle>
               <CardTextNewsLeftText>
-                Eleven more U.S. airports plan to adopt a new way of landing
-                planes that reduces both emissions and noise — all by having
-                incoming planes turn off their engines and glide down to the
-                tarmac like a paraglider. The Federal Aviation Administration
-                announced Monday that planes heading to Orlando, Fla.; Kansas
-                City, Mo.; Omaha, Neb.; Nebraska's Offutt Air Force Base; Reno,
-                Nev.; and six airports in South Florida soon would make idle
-                descents to...
+                {news && news[6] && news[6].content}
               </CardTextNewsLeftText>
             </CardTextNewsLeft>
-            <CardTextNewsLeft className="Card-Text">
+            <CardTextNewsLeft>
               <CardTextNewsLeftTitle>
-                More Airports to Use Greener ‘Glide’ Approach to Landing
+                {news && news[7] && news[7].title}
               </CardTextNewsLeftTitle>
               <CardTextNewsLeftText>
-                Eleven more U.S. airports plan to adopt a new way of landing
-                planes that reduces both emissions and noise — all by having
-                incoming planes turn off their engines and glide down to the
-                tarmac like a paraglider. The Federal Aviation Administration
-                announced Monday that planes heading to Orlando, Fla.; Kansas
-                City, Mo.; Omaha, Neb.; Nebraska's Offutt Air Force Base; Reno,
-                Nev.; and six airports in South Florida soon would make idle
-                descents to...
+                {news && news[7] && news[7].content}
               </CardTextNewsLeftText>
             </CardTextNewsLeft>
-            <div className="Card-imgs">
-              <img src="/frame-7.png" alt="" />
-            </div>
-            <div className="Card-imgs">
-              <img src="/frame-7.png" alt="" />
-            </div>
+            <CardImgNewsLeft>
+              <CardImgNewsLeftImg
+                src={news && news[8] && news[8].urlToImage}
+                alt=""
+              />
+              <CardImgNewsLeftTitle>
+                {news && news[8] && news[8].description}
+              </CardImgNewsLeftTitle>
+            </CardImgNewsLeft>
+            <CardImgNewsLeft>
+              <CardImgNewsLeftImg
+                src={news && news[9] && news[9].urlToImage}
+                alt=""
+              />
+              <CardImgNewsLeftTitle>
+                {news && news[9] && news[9].description}
+              </CardImgNewsLeftTitle>
+            </CardImgNewsLeft>
           </ContainerNewsLeftRender>
           <ButtonViewMore>Ver mais</ButtonViewMore>
         </ContainerNewsLeft>
@@ -156,106 +192,106 @@ const Home = () => {
           </ContainerNewsRightTitle>
           <ContainerNewsRightRender>
             <CardTextNewsRight>
-              <img src="/rectangle-25.png" alt="" />
+              <CardTextNewsRightImg
+                src={news && news[10] && news[10].urlToImage}
+              />
               <div>
                 <CardTextNewsRightTitle>
-                  LeBron James Keeps the World Watching
+                  {news && news[10] && news[10].title}
                 </CardTextNewsRightTitle>
                 <CardTextNewsRightText>
-                  The Los Angeles Lakers star has embraced the often harsh
-                  spotlight of celebrity to further his career and personal
-                  goals. But he said it can be “challenging at times.”
+                  {news && news[10] && news[10].description}
                 </CardTextNewsRightText>
               </div>
             </CardTextNewsRight>
             <CardTextNewsRight>
-              <img src="/rectangle-25.png" alt="" />
+              <CardTextNewsRightImg
+                src={news && news[11] && news[11].urlToImage}
+              />
               <div>
                 <CardTextNewsRightTitle>
-                  LeBron James Keeps the World Watching
+                  {news && news[11] && news[11].title}
                 </CardTextNewsRightTitle>
                 <CardTextNewsRightText>
-                  The Los Angeles Lakers star has embraced the often harsh
-                  spotlight of celebrity to further his career and personal
-                  goals. But he said it can be “challenging at times.”
+                  {news && news[11] && news[11].description}
                 </CardTextNewsRightText>
               </div>
             </CardTextNewsRight>
             <CardTextNewsRight>
-              <img src="/rectangle-25.png" alt="" />
+              <CardTextNewsRightImg
+                src={news && news[12] && news[12].urlToImage}
+              />
               <div>
                 <CardTextNewsRightTitle>
-                  LeBron James Keeps the World Watching
+                  {news && news[12] && news[12].title}
                 </CardTextNewsRightTitle>
                 <CardTextNewsRightText>
-                  The Los Angeles Lakers star has embraced the often harsh
-                  spotlight of celebrity to further his career and personal
-                  goals. But he said it can be “challenging at times.”
+                  {news && news[12] && news[12].description}
                 </CardTextNewsRightText>
               </div>
             </CardTextNewsRight>
             <CardTextNewsRight>
-              <img src="/rectangle-25.png" alt="" />
+              <CardTextNewsRightImg
+                src={news && news[13] && news[13].urlToImage}
+              />
               <div>
                 <CardTextNewsRightTitle>
-                  LeBron James Keeps the World Watching
+                  {news && news[13] && news[13].title}
                 </CardTextNewsRightTitle>
                 <CardTextNewsRightText>
-                  The Los Angeles Lakers star has embraced the often harsh
-                  spotlight of celebrity to further his career and personal
-                  goals. But he said it can be “challenging at times.”
+                  {news && news[13] && news[13].description}
                 </CardTextNewsRightText>
               </div>
             </CardTextNewsRight>
             <CardTextNewsRight>
-              <img src="/rectangle-25.png" alt="" />
+              <CardTextNewsRightImg
+                src={news && news[14] && news[14].urlToImage}
+              />
               <div>
                 <CardTextNewsRightTitle>
-                  LeBron James Keeps the World Watching
+                  {news && news[14] && news[14].title}
                 </CardTextNewsRightTitle>
                 <CardTextNewsRightText>
-                  The Los Angeles Lakers star has embraced the often harsh
-                  spotlight of celebrity to further his career and personal
-                  goals. But he said it can be “challenging at times.”
+                  {news && news[14] && news[14].description}
                 </CardTextNewsRightText>
               </div>
             </CardTextNewsRight>
             <CardTextNewsRight>
-              <img src="/rectangle-25.png" alt="" />
+              <CardTextNewsRightImg
+                src={news && news[15] && news[15].urlToImage}
+              />
               <div>
                 <CardTextNewsRightTitle>
-                  LeBron James Keeps the World Watching
+                  {news && news[15] && news[15].title}
                 </CardTextNewsRightTitle>
                 <CardTextNewsRightText>
-                  The Los Angeles Lakers star has embraced the often harsh
-                  spotlight of celebrity to further his career and personal
-                  goals. But he said it can be “challenging at times.”
+                  {news && news[15] && news[15].description}
                 </CardTextNewsRightText>
               </div>
             </CardTextNewsRight>
             <CardTextNewsRight>
-              <img src="/rectangle-25.png" alt="" />
+              <CardTextNewsRightImg
+                src={news && news[16] && news[16].urlToImage}
+              />
               <div>
                 <CardTextNewsRightTitle>
-                  LeBron James Keeps the World Watching
+                  {news && news[16] && news[16].title}
                 </CardTextNewsRightTitle>
                 <CardTextNewsRightText>
-                  The Los Angeles Lakers star has embraced the often harsh
-                  spotlight of celebrity to further his career and personal
-                  goals. But he said it can be “challenging at times.”
+                  {news && news[16] && news[16].description}
                 </CardTextNewsRightText>
               </div>
             </CardTextNewsRight>
             <CardTextNewsRight>
-              <img src="/rectangle-25.png" alt="" />
+              <CardTextNewsRightImg
+                src={news && news[17] && news[17].urlToImage}
+              />
               <div>
                 <CardTextNewsRightTitle>
-                  LeBron James Keeps the World Watching
+                  {news && news[17] && news[17].title}
                 </CardTextNewsRightTitle>
                 <CardTextNewsRightText>
-                  The Los Angeles Lakers star has embraced the often harsh
-                  spotlight of celebrity to further his career and personal
-                  goals. But he said it can be “challenging at times.”
+                  {news && news[17] && news[17].description}
                 </CardTextNewsRightText>
               </div>
             </CardTextNewsRight>

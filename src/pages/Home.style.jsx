@@ -71,6 +71,23 @@ export const NewsHeaderLeftFirst = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+`;
+
+export const NewsHeaderLeftFirstTitle = styled.h1`
+  max-width: 500px;
+  color: var(--color-white);
+  font-family: var(--font-title);
+  font-size: 2.4rem;
+  font-weight: bold;
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+`;
+
+export const NewsHeaderLeftFirstImg = styled.img`
+  width: 600px;
+  height: 365px;
 `;
 
 export const NewsHeaderLeftSeccond = styled.div`
@@ -93,6 +110,12 @@ export const NewsHeaderLeftSeccondText = styled.p`
   color: var(--color-green);
 `;
 
+export const NewsHeaderLeftSeccondImg = styled.img`
+  width: 106px;
+  height: 60px;
+  object-fit: cover;
+`;
+
 export const NewsHeaderRightFirst = styled.div`
   max-width: 100%;
   display: flex;
@@ -105,6 +128,11 @@ export const NewsHeaderRightFirstText = styled.p`
   font-family: var(--font-text);
   font-size: 1.6rem;
   color: var(--color-white);
+`;
+
+export const NewsHeaderRightFirstImg = styled.img`
+  width: 326px;
+  height: 240px;
 `;
 
 export const NewsHeaderRightSeccond = styled.div`
@@ -125,6 +153,12 @@ export const NewsHeaderRightSeccondText = styled.h3`
   font-size: 1.6rem;
   color: var(--color-green);
   padding: 0 2rem;
+`;
+
+export const NewsHeaderRightSeccondImg = styled.img`
+  width: 172px;
+  height: 185px;
+  object-fit: cover;
 `;
 
 export const ContainerNews = styled.section`
@@ -166,6 +200,27 @@ export const ContainerNewsLeftRender = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
+`;
+
+export const CardImgNewsLeft = styled.div`
+  position: relative;
+`;
+
+export const CardImgNewsLeftImg = styled.img`
+  width: 390px;
+  height: 340px;
+  object-fit: cover;
+`;
+
+export const CardImgNewsLeftTitle = styled.h1`
+  max-width: 350px;
+  font-family: var(--font-title);
+  font-size: 1.9rem;
+  font-weight: bold;
+  color: var(--color-white);
+  position: absolute;
+  bottom: 25px;
+  left: 10px;
 `;
 
 export const CardTextNewsLeft = styled.div`
@@ -260,4 +315,8 @@ export const CardTextNewsRightText = styled.p`
   font-family: var(--font-text);
   font-size: 1rem;
   color: #04594d;
+`;
+
+export const CardTextNewsRightImg = styled.img`
+  width: 140px;
 `;

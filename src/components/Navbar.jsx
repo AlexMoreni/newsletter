@@ -1,7 +1,13 @@
 import { NavbarContainer, LinkText } from "./Navbar.style";
 
-const Navbar = () => {
+const Navbar = ({ setHeadline }) => {
   const handleBackground = (clickedLink) => {
+    if (clickedLink.innerHTML === "Ciência &amp; Tecnologia") {
+      setHeadline("Ciência e Tecnologia");
+    } else {
+      setHeadline(clickedLink.innerHTML);
+    }
+
     const links = document.querySelectorAll(".links-option");
 
     links.forEach((link) => {

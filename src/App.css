@@ -11,3 +11,7 @@
 .link-select {
   background-color: var(--color-green);
 }
+
+a {
+  color: var(--color-white);
+}
