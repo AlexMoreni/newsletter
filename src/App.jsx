@@ -10,6 +10,8 @@ import "./App.css";
 function App() {
   const [news, setNews] = useState([]);
   const [headline, setHeadline] = useState("");
+  const [newsMore, setNewsMore] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const apiKey = "ba80d61933a54e5faed3b2ef691a8864";
@@ -31,13 +33,56 @@ function App() {
       });
   }, [headline]);
 
+  const loadMoreItems = async () => {
+    if (isLoading) return;
+
+    setIsLoading(true);
+
+    const apiKey = "ba80d61933a54e5faed3b2ef691a8864";
+    let apiUrl = "";
+
+    if (headline) {
+      apiUrl = `https://newsapi.org/v2/everything?domains=globo.com,uol.com.br&q=${headline}&sortBy=popularity&apiKey=${apiKey}`;
+    } else {
+      apiUrl = `https://newsapi.org/v2/everything?domains=globo.com,uol.com.br&sortBy=popularity&apiKey=${apiKey}`;
+    }
+
+    axios
+      .get(apiUrl)
+      .then((response) => {
+        setNewsMore((prevNews) => [
+          ...prevNews,
+          ...response.data.articles.slice(
+            news.length + newsMore.length,
+            news.length + newsMore.length + 6
+          ),
+        ]);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.log(`Erro ao buscar noticias: ${err}`);
+      });
+  };
+
+  useEffect(() => {
+    console.log(news);
+    console.log(newsMore);
+  }, [news, newsMore]);
+
   return (
     <Router>
       <Routes>
         <Route
           exact
           path="/"
-          element={<Home news={news} setHeadline={setHeadline} />}
+          element={
+            <Home
+              news={news}
+              setHeadline={setHeadline}
+              loadMoreItems={loadMoreItems}
+              newsMore={newsMore}
+            />
+          }
         ></Route>
       </Routes>
     </Router>

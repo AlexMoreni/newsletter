@@ -49,7 +49,7 @@ import {
   CardTextNewsRightImg,
 } from "./Home.style";
 
-const Home = ({ news, setHeadline }) => {
+const Home = ({ news, setHeadline, loadMoreItems, newsMore }) => {
   const handleHeadline = (e) => {
     e.preventDefault();
 
@@ -182,8 +182,21 @@ const Home = ({ news, setHeadline }) => {
                 {news && news[9] && news[9].description}
               </CardImgNewsLeftTitle>
             </CardImgNewsLeft>
+            {newsMore &&
+              newsMore.map((newNews) => (
+                <CardTextNewsLeft key={newNews.id}>
+                  <CardTextNewsLeftTitle>{newNews.title}</CardTextNewsLeftTitle>
+                  <CardTextNewsLeftText>{newNews.content}</CardTextNewsLeftText>
+                </CardTextNewsLeft>
+              ))}
           </ContainerNewsLeftRender>
-          <ButtonViewMore>Ver mais</ButtonViewMore>
+          <ButtonViewMore
+            onClick={() => {
+              loadMoreItems();
+            }}
+          >
+            Ver mais
+          </ButtonViewMore>
         </ContainerNewsLeft>
         <ContainerNewsRight>
           <ContainerNewsRightTitle>
