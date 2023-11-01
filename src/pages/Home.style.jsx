@@ -261,6 +261,7 @@ export const ButtonViewMore = styled.button`
 
 export const ContainerNewsRight = styled.aside`
   max-width: 30%;
+  max-height: 180vh;
   background-color: #fff;
   padding: 10px;
 `;

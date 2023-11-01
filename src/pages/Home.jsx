@@ -183,11 +183,26 @@ const Home = ({ news, setHeadline, loadMoreItems, newsMore }) => {
               </CardImgNewsLeftTitle>
             </CardImgNewsLeft>
             {newsMore &&
-              newsMore.map((newNews) => (
-                <CardTextNewsLeft key={newNews.id}>
-                  <CardTextNewsLeftTitle>{newNews.title}</CardTextNewsLeftTitle>
-                  <CardTextNewsLeftText>{newNews.content}</CardTextNewsLeftText>
-                </CardTextNewsLeft>
+              newsMore.map((newNews, index) => (
+                <>
+                  {index % 2 === 0 ? (
+                    <CardTextNewsLeft key={newNews.id}>
+                      <CardTextNewsLeftTitle>
+                        {newNews.title}
+                      </CardTextNewsLeftTitle>
+                      <CardTextNewsLeftText>
+                        {newNews.content}
+                      </CardTextNewsLeftText>
+                    </CardTextNewsLeft>
+                  ) : (
+                    <CardImgNewsLeft>
+                      <CardImgNewsLeftImg src={newNews.urlToImage} alt="" />
+                      <CardImgNewsLeftTitle>
+                        {newNews.description}
+                      </CardImgNewsLeftTitle>
+                    </CardImgNewsLeft>
+                  )}
+                </>
               ))}
           </ContainerNewsLeftRender>
           <ButtonViewMore
@@ -210,7 +225,11 @@ const Home = ({ news, setHeadline, loadMoreItems, newsMore }) => {
               />
               <div>
                 <CardTextNewsRightTitle>
-                  {news && news[10] && news[10].title}
+                  {news &&
+                    news[10] &&
+                    (news[10].title
+                      ? news[10].title
+                      : news[10].description.split(" ").slice(0, 10).join(" "))}
                 </CardTextNewsRightTitle>
                 <CardTextNewsRightText>
                   {news && news[10] && news[10].description}
@@ -223,7 +242,11 @@ const Home = ({ news, setHeadline, loadMoreItems, newsMore }) => {
               />
               <div>
                 <CardTextNewsRightTitle>
-                  {news && news[11] && news[11].title}
+                  {news &&
+                    news[11] &&
+                    (news[11].title
+                      ? news[11].title
+                      : news[11].description.split(" ").slice(0, 10).join(" "))}
                 </CardTextNewsRightTitle>
                 <CardTextNewsRightText>
                   {news && news[11] && news[11].description}
@@ -236,7 +259,11 @@ const Home = ({ news, setHeadline, loadMoreItems, newsMore }) => {
               />
               <div>
                 <CardTextNewsRightTitle>
-                  {news && news[12] && news[12].title}
+                  {news &&
+                    news[12] &&
+                    (news[12].title
+                      ? news[12].title
+                      : news[12].description.split(" ").slice(0, 10).join(" "))}
                 </CardTextNewsRightTitle>
                 <CardTextNewsRightText>
                   {news && news[12] && news[12].description}
@@ -249,7 +276,11 @@ const Home = ({ news, setHeadline, loadMoreItems, newsMore }) => {
               />
               <div>
                 <CardTextNewsRightTitle>
-                  {news && news[13] && news[13].title}
+                  {news &&
+                    news[13] &&
+                    (news[13].title
+                      ? news[13].title
+                      : news[13].description.split(" ").slice(0, 10).join(" "))}
                 </CardTextNewsRightTitle>
                 <CardTextNewsRightText>
                   {news && news[13] && news[13].description}
@@ -262,7 +293,11 @@ const Home = ({ news, setHeadline, loadMoreItems, newsMore }) => {
               />
               <div>
                 <CardTextNewsRightTitle>
-                  {news && news[14] && news[14].title}
+                  {news &&
+                    news[14] &&
+                    (news[14].title
+                      ? news[14].title
+                      : news[14].description.split(" ").slice(0, 10).join(" "))}
                 </CardTextNewsRightTitle>
                 <CardTextNewsRightText>
                   {news && news[14] && news[14].description}
@@ -275,7 +310,11 @@ const Home = ({ news, setHeadline, loadMoreItems, newsMore }) => {
               />
               <div>
                 <CardTextNewsRightTitle>
-                  {news && news[15] && news[15].title}
+                  {news &&
+                    news[15] &&
+                    (news[15].title
+                      ? news[15].title
+                      : news[15].description.split(" ").slice(0, 10).join(" "))}
                 </CardTextNewsRightTitle>
                 <CardTextNewsRightText>
                   {news && news[15] && news[15].description}
@@ -288,7 +327,11 @@ const Home = ({ news, setHeadline, loadMoreItems, newsMore }) => {
               />
               <div>
                 <CardTextNewsRightTitle>
-                  {news && news[16] && news[16].title}
+                  {news &&
+                    news[16] &&
+                    (news[16].title
+                      ? news[16].title
+                      : news[16].description.split(" ").slice(0, 10).join(" "))}
                 </CardTextNewsRightTitle>
                 <CardTextNewsRightText>
                   {news && news[16] && news[16].description}
@@ -301,7 +344,11 @@ const Home = ({ news, setHeadline, loadMoreItems, newsMore }) => {
               />
               <div>
                 <CardTextNewsRightTitle>
-                  {news && news[17] && news[17].title}
+                  {news &&
+                    news[17] &&
+                    (news[17].title
+                      ? news[17].title
+                      : news[17].description.split(" ").slice(0, 10).join(" "))}
                 </CardTextNewsRightTitle>
                 <CardTextNewsRightText>
                   {news && news[17] && news[17].description}
