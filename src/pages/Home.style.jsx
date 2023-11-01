@@ -320,4 +320,5 @@ export const CardTextNewsRightText = styled.p`
 
 export const CardTextNewsRightImg = styled.img`
   width: 140px;
+  max-height: 140px;
 `;

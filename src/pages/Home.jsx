@@ -77,7 +77,11 @@ const Home = ({ news, setHeadline, loadMoreItems, newsMore }) => {
           <ContainerNewsHeaderLeft>
             <NewsHeaderLeftFirst>
               <NewsHeaderLeftFirstTitle>
-                {news && news[0] && news[0].title}
+                {news &&
+                  news[0] &&
+                  (news[0].title
+                    ? news[0].title
+                    : news[0].description.split(" ").slice(0, 10).join(" "))}
               </NewsHeaderLeftFirstTitle>
               <NewsHeaderLeftFirstImg
                 src={news && news[0] && news[0].urlToImage}
@@ -86,7 +90,11 @@ const Home = ({ news, setHeadline, loadMoreItems, newsMore }) => {
             <NewsHeaderLeftSeccond>
               <div>
                 <NewsHeaderLeftSeccondTitle>
-                  {news && news[1] && news[1].title}
+                  {news &&
+                    news[1] &&
+                    (news[1].title
+                      ? news[1].title
+                      : news[1].description.split(" ").slice(0, 10).join(" "))}
                 </NewsHeaderLeftSeccondTitle>
                 <NewsHeaderLeftSeccondText>
                   {news && news[1] && news[1].description}
@@ -113,7 +121,11 @@ const Home = ({ news, setHeadline, loadMoreItems, newsMore }) => {
               />
               <div>
                 <NewsHeaderRightSeccondTitle>
-                  {news && news[3] && news[3].title}
+                  {news &&
+                    news[3] &&
+                    (news[3].title
+                      ? news[3].title
+                      : news[3].description.split(" ").slice(0, 10).join(" "))}
                 </NewsHeaderRightSeccondTitle>
                 <NewsHeaderRightSeccondText>
                   {news && news[3] && news[3].content}
@@ -150,7 +162,11 @@ const Home = ({ news, setHeadline, loadMoreItems, newsMore }) => {
             </CardImgNewsLeft>
             <CardTextNewsLeft>
               <CardTextNewsLeftTitle>
-                {news && news[6] && news[6].title}
+                {news &&
+                  news[6] &&
+                  (news[6].title
+                    ? news[6].title
+                    : news[6].description.split(" ").slice(0, 10).join(" "))}
               </CardTextNewsLeftTitle>
               <CardTextNewsLeftText>
                 {news && news[6] && news[6].content}
@@ -158,7 +174,11 @@ const Home = ({ news, setHeadline, loadMoreItems, newsMore }) => {
             </CardTextNewsLeft>
             <CardTextNewsLeft>
               <CardTextNewsLeftTitle>
-                {news && news[7] && news[7].title}
+                {news &&
+                  news[7] &&
+                  (news[7].title
+                    ? news[7].title
+                    : news[7].description.split(" ").slice(0, 10).join(" "))}
               </CardTextNewsLeftTitle>
               <CardTextNewsLeftText>
                 {news && news[7] && news[7].content}
@@ -188,14 +208,19 @@ const Home = ({ news, setHeadline, loadMoreItems, newsMore }) => {
                   {index % 2 === 0 ? (
                     <CardTextNewsLeft key={newNews.id}>
                       <CardTextNewsLeftTitle>
-                        {newNews.title}
+                        {newNews.title
+                          ? newNews.title
+                          : newNews.description
+                              .split(" ")
+                              .slice(0, 10)
+                              .join(" ")}
                       </CardTextNewsLeftTitle>
                       <CardTextNewsLeftText>
                         {newNews.content}
                       </CardTextNewsLeftText>
                     </CardTextNewsLeft>
                   ) : (
-                    <CardImgNewsLeft>
+                    <CardImgNewsLeft key={newNews.id}>
                       <CardImgNewsLeftImg src={newNews.urlToImage} alt="" />
                       <CardImgNewsLeftTitle>
                         {newNews.description}

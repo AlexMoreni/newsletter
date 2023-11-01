@@ -17,10 +17,19 @@ function App() {
     const apiKey = "ba80d61933a54e5faed3b2ef691a8864";
     let apiUrl = "";
 
+    const getDate = () => {
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = now.getMonth() + 1;
+      const day = now.getDate();
+
+      return `${year}-${month}-${day}`;
+    };
+
     if (headline) {
-      apiUrl = `https://newsapi.org/v2/everything?domains=globo.com,uol.com.br&q=${headline}&sortBy=popularity&apiKey=${apiKey}`;
+      apiUrl = `https://newsapi.org/v2/everything?domains=globo.com,uol.com.br&q=${headline}&from=${getDate()}&to=${getDate()}&sortBy=popularity&apiKey=${apiKey}`;
     } else {
-      apiUrl = `https://newsapi.org/v2/everything?domains=globo.com,uol.com.br&sortBy=popularity&apiKey=${apiKey}`;
+      apiUrl = `https://newsapi.org/v2/everything?domains=globo.com,uol.com.br&sortBy=popularity&from=${getDate()}&to=2023-10-31&apiKey=${apiKey}`;
     }
 
     axios
@@ -39,12 +48,21 @@ function App() {
     setIsLoading(true);
 
     const apiKey = "ba80d61933a54e5faed3b2ef691a8864";
-    let apiUrl = "";
+    let apiUrl = `https://newsapi.org/v2/everything?domains=globo.com,uol.com.br&sortBy=popularity&from=2023-10-31&to=2023-10-31&apiKey=${apiKey}`;
+
+    const getDate = () => {
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = now.getMonth() + 1;
+      const day = now.getDate();
+
+      return `${year}-${month}-${day}`;
+    };
 
     if (headline) {
-      apiUrl = `https://newsapi.org/v2/everything?domains=globo.com,uol.com.br&q=${headline}&sortBy=popularity&apiKey=${apiKey}`;
+      apiUrl = `https://newsapi.org/v2/everything?domains=globo.com,uol.com.br&q=${headline}&from=${getDate()}&to=${getDate()}&sortBy=popularity&apiKey=${apiKey}`;
     } else {
-      apiUrl = `https://newsapi.org/v2/everything?domains=globo.com,uol.com.br&sortBy=popularity&apiKey=${apiKey}`;
+      apiUrl = `https://newsapi.org/v2/everything?domains=globo.com,uol.com.br&sortBy=popularity&from=${getDate()}&to=2023-10-31&apiKey=${apiKey}`;
     }
 
     axios
