@@ -31,6 +31,29 @@ export const ContainerSearch = styled.div`
   justify-content: space-between;
   align-items: center;
   padding-bottom: 50px;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  @media (min-width: 481px) and (max-width: 767px) {
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 20px;
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    flex-direction: column;
+    gap: 30px;
+    padding-top: 40px;
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    flex-direction: column;
+    gap: 30px;
+    padding-top: 40px;
+  }
 `;
 
 export const TitleHeader = styled.h1`
@@ -49,6 +72,14 @@ export const InputSearch = styled.input`
   background-color: var(--color-green);
   border: none;
   padding-left: 10px;
+
+  @media (max-width: 480px) {
+    width: 100%;
+  }
+
+  @media (min-width: 481px) and (max-width: 767px) {
+    width: 100%;
+  }
 `;
 
 export const ButtonSearch = styled.button`
@@ -59,6 +90,16 @@ export const ButtonSearch = styled.button`
   color: var(--color-white);
   background-color: var(--color-brow);
   cursor: pointer;
+
+  @media (max-width: 480px) {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  @media (min-width: 481px) and (max-width: 767px) {
+    width: 100%;
+    margin-top: 20px;
+  }
 `;
 
 export const ContainerNewsHeader = styled.div`
@@ -69,10 +110,43 @@ export const ContainerNewsHeader = styled.div`
 
 export const ContainerNewsHeaderLeft = styled.div`
   max-width: 55%;
+
+  @media (max-width: 480px) {
+    max-width: 100%;
+  }
+
+  @media (min-width: 481px) and (max-width: 767px) {
+    max-width: 100%;
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    max-width: 100%;
+    margin-top: 30px;
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    max-width: 100%;
+  }
 `;
 
 export const ContainerNewsHeaderRight = styled.div`
   max-width: 45%;
+
+  @media (max-width: 480px) {
+    display: none;
+  }
+
+  @media (min-width: 481px) and (max-width: 767px) {
+    display: none;
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    display: none;
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    display: none;
+  }
 `;
 
 export const NewsHeaderLeftFirst = styled.div`
@@ -84,6 +158,15 @@ export const NewsHeaderLeftFirst = styled.div`
   align-items: center;
   justify-content: center;
   position: relative;
+
+  @media (max-width: 480px) {
+    width: 100%;
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    max-width: 80%;
+    margin: 0 auto;
+  }
 `;
 
 export const NewsHeaderLeftFirstTitle = styled.h1`
@@ -95,11 +178,21 @@ export const NewsHeaderLeftFirstTitle = styled.h1`
   position: absolute;
   bottom: 50px;
   left: 50px;
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    max-width: 40%;
+    bottom: 50px;
+    left: 180px;
+  }
 `;
 
 export const NewsHeaderLeftFirstImg = styled.img`
   width: 600px;
   height: 365px;
+
+  @media (max-width: 480px) {
+    width: 100%;
+  }
 `;
 
 export const NewsHeaderLeftSeccond = styled.div`
@@ -108,6 +201,11 @@ export const NewsHeaderLeftSeccond = styled.div`
   display: flex;
   align-items: center;
   padding: 0 2rem;
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    max-width: 80%;
+    margin: 0 auto;
+  }
 `;
 
 export const NewsHeaderLeftSeccondTitle = styled.h3`
@@ -178,6 +276,29 @@ export const ContainerNews = styled.section`
   display: flex;
   padding: 40vh 5rem 0 5rem;
   gap: 10px;
+
+  @media (max-width: 480px) {
+    padding: 58vh 1rem 0 1rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media (min-width: 481px) and (max-width: 767px) {
+    padding: 20vh 1rem 0 1rem;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    padding: 8vh 1rem 0 1rem;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    padding: 14vh 1rem 0 1rem;
+    margin: 0 auto;
+  }
 `;
 
 export const ContainerNewsLeft = styled.section`
@@ -185,6 +306,22 @@ export const ContainerNewsLeft = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (max-width: 480px) {
+    max-width: 100%;
+  }
+
+  @media (min-width: 481px) and (max-width: 767px) {
+    max-width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    max-width: 50%;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export const ContainerNewsLeftTitle = styled.h1`
@@ -212,6 +349,10 @@ export const ContainerNewsLeftRender = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
+
+  @media (min-width: 481px) and (max-width: 767px) {
+    justify-content: center;
+  }
 `;
 
 export const CardImgNewsLeft = styled.div`
@@ -222,6 +363,20 @@ export const CardImgNewsLeftImg = styled.img`
   width: 390px;
   height: 340px;
   object-fit: cover;
+
+  @media (min-width: 481px) and (max-width: 767px) {
+    width: 312px;
+    height: 340px;
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    width: 312px;
+    height: 340px;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+  }
 `;
 
 export const CardImgNewsLeftTitle = styled.h1`
@@ -243,6 +398,16 @@ export const CardTextNewsLeft = styled.div`
   flex-direction: column;
   gap: 30px;
   padding: 15px;
+
+  @media (min-width: 481px) and (max-width: 767px) {
+    width: 312px;
+    height: 340px;
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    width: 312px;
+    height: 340px;
+  }
 `;
 
 export const CardTextNewsLeftTitle = styled.h2`
@@ -276,6 +441,23 @@ export const ContainerNewsRight = styled.aside`
   max-height: 180vh;
   background-color: #fff;
   padding: 10px;
+
+  @media (max-width: 480px) {
+    display: none;
+  }
+
+  @media (min-width: 481px) and (max-width: 767px) {
+    display: none;
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    max-width: 45%;
+    max-height: 103.5vh;
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    max-height: 140.5vh;
+  }
 `;
 
 export const ContainerNewsRightTitle = styled.div`
