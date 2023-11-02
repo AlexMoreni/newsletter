@@ -11,6 +11,18 @@ export const Header = styled.header`
   height: 60vh;
   background-color: var(--color-black);
   padding: 5rem;
+
+  @media (max-width: 480px) {
+    padding: 2rem;
+  }
+
+  @media (min-width: 481px) and (max-width: 767px) {
+    padding: 2rem;
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    padding: 0rem;
+  }
 `;
 
 export const ContainerSearch = styled.div`
