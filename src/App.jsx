@@ -27,9 +27,21 @@ function App() {
     };
 
     if (headline) {
-      apiUrl = `https://newsapi.org/v2/everything?domains=globo.com,uol.com.br&q=${headline}&from=${getDate()}&to=${getDate()}&sortBy=popularity&apiKey=${apiKey}`;
+      apiUrl = `https://newsapi.org/v2/everything?domains=globo.com,uol.com.br&q=${headline}&from=${new Date(
+        new Date().setDate(new Date().getDate() - 10)
+      )
+        .toLocaleDateString()
+        .split("/")
+        .reverse()
+        .join("-")}&to=${getDate()}&sortBy=popularity&apiKey=${apiKey}`;
     } else {
-      apiUrl = `https://newsapi.org/v2/everything?domains=globo.com,uol.com.br&sortBy=popularity&from=${getDate()}&to=2023-10-31&apiKey=${apiKey}`;
+      apiUrl = `https://newsapi.org/v2/everything?domains=globo.com,uol.com.br&sortBy=popularity&from=${new Date(
+        new Date().setDate(new Date().getDate() - 10)
+      )
+        .toLocaleDateString()
+        .split("/")
+        .reverse()
+        .join("-")}&to=${getDate()}&apiKey=${apiKey}`;
     }
 
     axios
@@ -60,9 +72,21 @@ function App() {
     };
 
     if (headline) {
-      apiUrl = `https://newsapi.org/v2/everything?domains=globo.com,uol.com.br&q=${headline}&from=${getDate()}&to=${getDate()}&sortBy=popularity&apiKey=${apiKey}`;
+      apiUrl = `https://newsapi.org/v2/everything?domains=globo.com,uol.com.br&q=${headline}&from=${new Date(
+        new Date().setDate(new Date().getDate() - 10)
+      )
+        .toLocaleDateString()
+        .split("/")
+        .reverse()
+        .join("-")}&to=${getDate()}&sortBy=popularity&apiKey=${apiKey}`;
     } else {
-      apiUrl = `https://newsapi.org/v2/everything?domains=globo.com,uol.com.br&sortBy=popularity&from=${getDate()}&to=2023-10-31&apiKey=${apiKey}`;
+      apiUrl = `https://newsapi.org/v2/everything?domains=globo.com,uol.com.br&sortBy=popularity&from=${new Date(
+        new Date().setDate(new Date().getDate() - 10)
+      )
+        .toLocaleDateString()
+        .split("/")
+        .reverse()
+        .join("-")}&to=${getDate()}&apiKey=${apiKey}`;
     }
 
     axios
@@ -83,6 +107,16 @@ function App() {
   };
 
   useEffect(() => {
+    console.log();
+
+    console.log(
+      new Date(new Date().setDate(new Date().getDate() - 5))
+        .toLocaleDateString()
+        .split("/")
+        .reverse()
+        .join("-")
+    );
+
     console.log(news);
     console.log(newsMore);
   }, [news, newsMore]);
