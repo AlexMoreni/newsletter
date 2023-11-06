@@ -49,7 +49,7 @@ import {
   CardTextNewsRightImg,
 } from "./Home.style";
 
-const Home = ({ news, setHeadline, loadMoreItems, newsMore }) => {
+const Home = ({ news, setHeadline, loadMoreItems, newsMore, isLoading }) => {
   const handleHeadline = (e) => {
     e.preventDefault();
 
@@ -144,6 +144,7 @@ const Home = ({ news, setHeadline, loadMoreItems, newsMore }) => {
           </ContainerNewsHeaderRight>
         </ContainerNewsHeader>
       </Header>
+      {isLoading && <div className="loader"></div>}
       <ContainerNews>
         <ContainerNewsLeft>
           <ContainerNewsLeftTitle>

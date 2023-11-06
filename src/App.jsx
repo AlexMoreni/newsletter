@@ -44,10 +44,13 @@ function App() {
         .join("-")}&to=${getDate()}&apiKey=${apiKey}`;
     }
 
+    setIsLoading(true);
+
     axios
       .get(apiUrl)
       .then((response) => {
         setNews(response.data.articles.slice(0, 18));
+        setIsLoading(false);
       })
       .catch((err) => {
         console.log(`Erro ao buscar noticias: ${err}`);
@@ -106,21 +109,6 @@ function App() {
       });
   };
 
-  useEffect(() => {
-    console.log();
-
-    console.log(
-      new Date(new Date().setDate(new Date().getDate() - 5))
-        .toLocaleDateString()
-        .split("/")
-        .reverse()
-        .join("-")
-    );
-
-    console.log(news);
-    console.log(newsMore);
-  }, [news, newsMore]);
-
   return (
     <Router>
       <Routes>
@@ -133,6 +121,7 @@ function App() {
               setHeadline={setHeadline}
               loadMoreItems={loadMoreItems}
               newsMore={newsMore}
+              isLoading={isLoading}
             />
           }
         ></Route>
