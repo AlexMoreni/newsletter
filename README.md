@@ -1,8 +1,50 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Newsletter
 
-Currently, two official plugins are available:
+Bem-vindo, seu destino online para se manter informado sobre as últimas novidades e acontecimentos relevantes em todo o mundo. Nosso site é projetado para oferecer uma experiência de leitura envolvente e informativa, abrangendo uma ampla gama de tópicos, desde notícias locais até assuntos globais.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Funcionalidades 🚀
+
+- Categorias Temáticas
+- Página Inicial Dinâmica
+- Pesquisa Avançada
+- Notícias em Tempo Real
+
+
+## Rodando localmente ⚙️
+
+Clone o projeto
+
+```bash
+  https://github.com/AlexMoreni/newsletter.git
+```
+
+Entre no diretório do projeto
+
+```bash
+  cd newsletter
+```
+
+Instale as dependências
+
+```bash
+  npm install
+```
+
+Inicie o servidor
+
+```bash
+  npm run dev
+```
+
+
+
+## Screenshots 📷
+
+![App Screenshot](https://i.postimg.cc/y625KXc5/news.png)
+
+
+## Autores 📍
+
+- [@Alex Moreni](https://github.com/AlexMoreni)
+
